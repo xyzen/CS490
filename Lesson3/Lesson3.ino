@@ -15,7 +15,7 @@ unsigned f6;
 float f7;
 /************************MQ135sensor************************************/
 /************************Hardware Related Macros************************************/
-#define         MQ135PIN                       (5)     //define which analog input channel you are going to use
+#define         MQ135PIN                       (3)     //define which analog input channel you are going to use
 #define         RL_VALUE_MQ135                 (1)     //define the load resistance on the board, in kilo ohms
 #define         RO_CLEAN_AIR_FACTOR_MQ135      (3.59)  //RO_CLEAR_AIR_FACTOR=(Sensor resistance in clean air)/RO,
                                                        //which is derived from the chart in datasheet
