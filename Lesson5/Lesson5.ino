@@ -27,5 +27,6 @@ void loop() {
   String message = "MSG";
   message += distance;
   Serial.println(message);
-  delay(250);
+  delay(20);
 }
+
