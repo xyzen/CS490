@@ -8,3 +8,5 @@
 * Lesson 3 thingspeak: https://thingspeak.com/channels/1086414
 
 * Lesson 4 demonstration: https://youtu.be/euF1UE2MZaM
+
+* Lesson 5 demonstration: https://youtu.be/NaWEsoLcTwM
