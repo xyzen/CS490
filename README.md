@@ -10,3 +10,5 @@
 * Lesson 4 demonstration: https://youtu.be/euF1UE2MZaM
 
 * Lesson 5 demonstration: https://youtu.be/NaWEsoLcTwM
+
+* Lesson 6 demonstration: https://youtu.be/SynnlTUQNA8
