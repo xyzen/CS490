@@ -7,7 +7,7 @@ from Adafruit_IO import RequestError, Client, Feed, Data
 
 #Adafruit IO Dashboard data
 ADAFRUIT_IO_USERNAME = "xyzen"
-ADAFRUIT_IO_KEY = "aio_KnfP94Wq5q1VlRV91jO72uAQbZPW"
+ADAFRUIT_IO_KEY = "aio_FeeU67IDEIl6nFZLt8092YdiSyFH"
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
 GPIO.setmode(GPIO.BOARD)
@@ -36,6 +36,7 @@ def send_data(data):
     for x in range(len(data)):
         aio.send_data(feeds[x].key, data[x]) #Send data to AIO
 
+timer = 0
 while True:
     read_ser = ser.readline()
     print(read_ser)
@@ -44,4 +45,10 @@ while True:
         data = package[3:].split("|")
         data = [float(reading) for reading in data]
         print(data)
-    	check_alarms(data)
+        check_alarms(data)
+        try:
+            if (time.process_time() - timer) > 60:
+                send_data(data)
+        except:
+            timer = time.process_time()
+
