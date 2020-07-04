@@ -3,6 +3,12 @@ import sys
 import time
 import serial
 import RPi.GPIO as GPIO
+from Adafruit_IO import RequestError, Client, Feed, Data
+
+#Adafruit IO Dashboard data
+ADAFRUIT_IO_USERNAME = "xyzen"
+ADAFRUIT_IO_KEY = "aio_KnfP94Wq5q1VlRV91jO72uAQbZPW"
+aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
 GPIO.setmode(GPIO.BOARD)
 outputs = [3, 5, 7, 8, 10, 11, 12, 13, 15, 16, 18, 19, 21, 22, 23, 24]
@@ -23,6 +29,12 @@ def check_alarms(data):
         else:
             GPIO.output(pairs[i][0], GPIO.LOW)
             GPIO.output(pairs[i][1], GPIO.HIGH)
+
+#Send data function, sends to Adafruit IO Dashboard
+def send_data(data):
+    feeds = aio.feeds() #Sets feeds from AIO
+    for x in range(len(data)):
+        aio.send_data(feeds[x].key, data[x]) #Send data to AIO
 
 while True:
     read_ser = ser.readline()
