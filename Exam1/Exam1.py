@@ -6,16 +6,14 @@ import urllib.request as urllib2,json
 import RPi.GPIO as GPIO
 from Adafruit_IO import RequestError, Client, Feed, Data
 
-#initialize adafruit IO with client function
-aio = Client('Levizzzle','aio_rteY67YQ8itPEiyn4tNNMA02ejtU')
-
 #Thingspeak API data
 READ_API_KEY='YP2XMIJDWOTSTWW4'
 CHANNEL_ID=1090663
 
 #Adafruit IO Dashboard data
-ADAFRUIT_IO_USERNAME = "Levizzzle"
-ADAFRUIT_IO_KEY = "aio_rteY67YQ8itPEiyn4tNNMA02ejtU"
+ADAFRUIT_IO_USERNAME = "xyzen"
+ADAFRUIT_IO_KEY = "aio_wdFQ059pSWIVwkXcakJtxnaEz25z"
+aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
 #Assignment Variables
 ser = serial.Serial("/dev/ttyACM1",9600) #Connect to serial
