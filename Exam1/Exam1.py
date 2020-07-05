@@ -7,7 +7,7 @@ from Adafruit_IO import RequestError, Client, Feed, Data
 
 #Adafruit IO Dashboard data
 ADAFRUIT_IO_USERNAME = "xyzen"
-ADAFRUIT_IO_KEY = "aio_FeeU67IDEIl6nFZLt8092YdiSyFH"
+ADAFRUIT_IO_KEY = "aio_amUu18Y4TPMvDoUyD5Syu6VN09B3"
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
 GPIO.setmode(GPIO.BOARD)
@@ -18,10 +18,10 @@ pairs = [(3, 7), (5, 8), (10, 12), (11, 13), (15, 18), (16, 19), (21, 23), (22, 
 
 #Assignment Variables
 ser = serial.Serial("/dev/ttyACM0",9600) #Connect to serial
-ser.baudrate = 9600 #Set baudrate
+ser.baudrate = 115200 #Set baudrate
 
 def check_alarms(data):
-    sensThres = [27, 41.9, 978.5, 400, 3805, 4.1, 8.1, 22]
+    sensThres = [28, 43, 981, 500, 3805, 10, 15, 22]
     for i in range(8):
         if data[i] > sensThres[i]:
             GPIO.output(pairs[i][0], GPIO.HIGH)
@@ -36,19 +36,28 @@ def send_data(data):
     for x in range(len(data)):
         aio.send_data(feeds[x].key, data[x]) #Send data to AIO
 
-timer = 0
+wait = 15
+timer = time.time()-15
 while True:
     read_ser = ser.readline()
-    print(read_ser)
     package = read_ser.decode('ASCII')
+    print(package[:-1])
     if package[:3] == "MSG":
         data = package[3:].split("|")
         data = [float(reading) for reading in data]
         print(data)
         check_alarms(data)
         try:
-            if (time.process_time() - timer) > 60:
+            elapsed = time.time() - timer
+            if elapsed > wait:
                 send_data(data)
+                timer = time.time()
+                wait = 15
+                print("Success!\n")
+            else:
+                print("Waiting for AIO Dashboard", wait - elapsed, "\n")
         except:
-            timer = time.process_time()
+            timer = time.time()
+            wait = 60
+            print("Failed to update AIO Dashboard\n")
 
