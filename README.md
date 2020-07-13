@@ -1,1 +1,1 @@
-# Check the Wiki for details about each project.
+# Check the Wiki for details about each Lesson.
