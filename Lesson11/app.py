@@ -24,9 +24,9 @@ def home():
     form = ObjDetectForm()
     if form.validate_on_submit():
         filename = images.save(form.image.data)
-        detected = obj_detect("/home/pi/Desktop/obj-detect-web/static/"+filename)
+        detected = obj_detect("./static/"+filename)
         filename = "result_" + filename
-        cv2.imwrite("/home/pi/Desktop/obj-detect-web/static/"+filename, detected)
+        cv2.imwrite("./static/"+filename, detected)
         return render_template("index.html", form=form, result=filename)
     return render_template("index.html", form=form, result="intro.jpg")
 
