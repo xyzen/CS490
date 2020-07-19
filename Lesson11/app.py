@@ -9,7 +9,7 @@ import cv2
 
 # CODE FOR APP
 
-app = Flask(__name__, static_folder="/home/pi/Desktop/obj-detect-web/static")
+app = Flask(__name__, static_folder=os.path.join(os.getcwd(), "static"))
 app.config['SECRET_KEY'] = "clishmaclaver"
 app.config['UPLOADED_IMAGES_DEST'] = "static"
 
