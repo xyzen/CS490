@@ -24,9 +24,9 @@ def home():
     form = ObjDetectForm()
     if form.validate_on_submit():
         filename = images.save(form.image.data)
-        detected = obj_detect("./static/"+filename)
+        detected = obj_detect(os.path.join(os.getcwd(), "static", filename))
         filename = "result_" + filename
-        cv2.imwrite("./static/"+filename, detected)
+        cv2.imwrite(os.path.join(os.getcwd(), "static", filename), detected)
         return render_template("index.html", form=form, result=filename)
     return render_template("index.html", form=form, result="intro.jpg")
 
@@ -43,7 +43,8 @@ CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
 	"sofa", "train", "tvmonitor"]
 COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
 print("[INFO] loading model...")
-net = cv2.dnn.readNetFromCaffe("./obj-detect/MobileNetSSD_deploy.prototxt.txt", "./obj-detect/MobileNetSSD_deploy.caffemodel")
+net = cv2.dnn.readNetFromCaffe(os.path.join(os.getcwd(), "obj-detect", "MobileNetSSD_deploy.prototxt.txt"),
+    os.path.join(os.getcwd(), "obj-detect", "MobileNetSSD_deploy.caffemodel"))
 
 def obj_detect(path):
     image = cv2.imread(path)
