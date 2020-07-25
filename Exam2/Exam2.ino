@@ -1,6 +1,3 @@
-// ESP01 variables
-#include <SoftwareSerial.h>
-
 // Ultrasonic sensor variables
 const int trigPin = 12;
 const int echoPin = 13;

@@ -1,0 +1,735 @@
+[
+    {
+        "id": "99545085.16a95",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "aa37ed08.d8692",
+        "type": "debug",
+        "z": "99545085.16a95",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 490,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2a157233.c396ce",
+        "type": "watch",
+        "z": "99545085.16a95",
+        "name": "Filechange",
+        "files": "/home/pi/Desktop/CS490/Exam2/sensor_data.csv",
+        "recursive": "",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "541c3fa9.29a4d"
+            ]
+        ]
+    },
+    {
+        "id": "541c3fa9.29a4d",
+        "type": "file in",
+        "z": "99545085.16a95",
+        "name": "",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "f2eee119.dc384"
+            ]
+        ]
+    },
+    {
+        "id": "f2eee119.dc384",
+        "type": "csv",
+        "z": "99545085.16a95",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "75e65f9c.fd12e",
+                "35fc3613.21d40a",
+                "69b5f853.f5adb8",
+                "e902996a.adef88",
+                "dd30acbb.31eb1",
+                "832eb16e.b60e7",
+                "d067c91d.238ff8",
+                "c734b529.3494d8",
+                "fb84c075.144c"
+            ]
+        ]
+    },
+    {
+        "id": "49319fe0.3cf2b",
+        "type": "ui_chart",
+        "z": "99545085.16a95",
+        "name": "",
+        "group": "8c59f867.a98e08",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 410,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75e65f9c.fd12e",
+        "type": "change",
+        "z": "99545085.16a95",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.col1",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 260,
+        "wires": [
+            [
+                "49319fe0.3cf2b"
+            ]
+        ]
+    },
+    {
+        "id": "35fc3613.21d40a",
+        "type": "change",
+        "z": "99545085.16a95",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.col2",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "8a70953a.bd5488"
+            ]
+        ]
+    },
+    {
+        "id": "69b5f853.f5adb8",
+        "type": "change",
+        "z": "99545085.16a95",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.col3",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 340,
+        "wires": [
+            [
+                "17128869.f29958"
+            ]
+        ]
+    },
+    {
+        "id": "e902996a.adef88",
+        "type": "change",
+        "z": "99545085.16a95",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.col4",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 380,
+        "wires": [
+            [
+                "3ff3f988.de8186"
+            ]
+        ]
+    },
+    {
+        "id": "dd30acbb.31eb1",
+        "type": "change",
+        "z": "99545085.16a95",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.col5",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 420,
+        "wires": [
+            [
+                "2ffc520f.0a72ce"
+            ]
+        ]
+    },
+    {
+        "id": "832eb16e.b60e7",
+        "type": "change",
+        "z": "99545085.16a95",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.col6",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 460,
+        "wires": [
+            [
+                "1e55c61d.96755a"
+            ]
+        ]
+    },
+    {
+        "id": "d067c91d.238ff8",
+        "type": "change",
+        "z": "99545085.16a95",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.col7",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 500,
+        "wires": [
+            [
+                "8545674.f361098"
+            ]
+        ]
+    },
+    {
+        "id": "c734b529.3494d8",
+        "type": "change",
+        "z": "99545085.16a95",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.col8",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 540,
+        "wires": [
+            [
+                "e74275e2.a09a98"
+            ]
+        ]
+    },
+    {
+        "id": "8a70953a.bd5488",
+        "type": "ui_chart",
+        "z": "99545085.16a95",
+        "name": "",
+        "group": "8c59f867.a98e08",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17128869.f29958",
+        "type": "ui_chart",
+        "z": "99545085.16a95",
+        "name": "",
+        "group": "f47c7a5f.2ef788",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Pressure",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ff3f988.de8186",
+        "type": "ui_chart",
+        "z": "99545085.16a95",
+        "name": "",
+        "group": "f47c7a5f.2ef788",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Light",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ffc520f.0a72ce",
+        "type": "ui_chart",
+        "z": "99545085.16a95",
+        "name": "",
+        "group": "a1ada670.dc18c8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Dust",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e55c61d.96755a",
+        "type": "ui_chart",
+        "z": "99545085.16a95",
+        "name": "",
+        "group": "21e460e9.4947a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Carbon Dioxide",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 420,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8545674.f361098",
+        "type": "ui_chart",
+        "z": "99545085.16a95",
+        "name": "",
+        "group": "21e460e9.4947a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Carbon Monoxide",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e74275e2.a09a98",
+        "type": "ui_chart",
+        "z": "99545085.16a95",
+        "name": "",
+        "group": "a1ada670.dc18c8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Distance",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 400,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb84c075.144c",
+        "type": "function",
+        "z": "99545085.16a95",
+        "name": "Status",
+        "func": "msg.payload = \"Temperature: \" + String(msg.payload.col1) + \", Humidity: \" + String(msg.payload.col2) + \", Pressure: \" + String(msg.payload.col3) + \", Light: \" + String(msg.payload.col4) + \", Dust: \" + String(msg.payload.col5) + \", Carbon Dioxide: \" + String(msg.payload.col6) + \", Carbon Monoxide: \" + String(msg.payload.col7) + \", Distance: \" + String(msg.payload.col8);\nmsg.topic = \"Sensor Data\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "aa37ed08.d8692",
+                "ece45b9d.c9ef78",
+                "159a7180.8d328f"
+            ]
+        ]
+    },
+    {
+        "id": "ece45b9d.c9ef78",
+        "type": "e-mail",
+        "z": "99545085.16a95",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "twheaton.cs@gmail.com",
+        "dname": "",
+        "x": 650,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "159a7180.8d328f",
+        "type": "twitter out",
+        "z": "99545085.16a95",
+        "twitter": "",
+        "name": "Tweet",
+        "x": 590,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "8c59f867.a98e08",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "72ec1025.c1607",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f47c7a5f.2ef788",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "72ec1025.c1607",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "a1ada670.dc18c8",
+        "type": "ui_group",
+        "name": "Group 3",
+        "tab": "72ec1025.c1607",
+        "order": 3,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "21e460e9.4947a",
+        "type": "ui_group",
+        "name": "Group 4",
+        "tab": "72ec1025.c1607",
+        "order": 4,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "72ec1025.c1607",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
