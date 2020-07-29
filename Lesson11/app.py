@@ -11,7 +11,7 @@ import cv2
 
 app = Flask(__name__, static_folder=os.path.join(os.getcwd(), "static"))
 app.config['SECRET_KEY'] = "clishmaclaver"
-app.config['UPLOADED_AUDIO_DEST'] = "static"
+app.config['UPLOADED_IMAGES_DEST'] = "static"
 
 images = UploadSet("images", IMAGES)
 configure_uploads(app, images)
