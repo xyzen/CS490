@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST"  enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        {{ form.audio }}
+        <button type="submit">Upload</button>
+    </form>
+    <p>{{status[0]}}<br>
+    <br>{{status[1]}}
+    <br>{{status[2]}}
+    <br>{{status[3]}}
+    <br>{{status[4]}}
+    <br>{{status[5]}}
+    <br>{{status[6]}}
+    <br>{{status[7]}}
+    <br>{{status[8]}}
+    <br>{{status[9]}}
+    <br>{{status[10]}}
+    </p>
+</body>
+</html>

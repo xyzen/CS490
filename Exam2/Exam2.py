@@ -2,14 +2,15 @@
 import sys
 import serial
 
-ser = serial.Serial("/dev/ttyACM0", 9600) #Connect to serial
+# Establish serial connection with Arduino
+ser = serial.Serial("/dev/ttyACM0", 9600)
 ser.baudrate = 9600 #Set baudrate
 
 def get_data():
     read_ser = ser.readline()
     package = read_ser.decode('ASCII').strip()
     if package[:3] == 'MSG':
-	# split messages into data entries
+	# split flagged messages into data entries
         data = package[3:].split("|")
         data = [float(entry) for entry in data]
         print(data)
